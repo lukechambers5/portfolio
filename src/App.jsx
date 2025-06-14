@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
       <header className="max-w-4xl mx-auto mb-12">
-        <h1 className="text-5xl font-extrabold text-indigo-400">Luke Chambers' Portfolio</h1>
+        <h1 className="text-5xl font-extrabold text-indigo-400">Luke Chambers' Portfolio SICK</h1>
       </header>
 
       <main>
