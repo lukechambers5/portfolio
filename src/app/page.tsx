@@ -215,20 +215,23 @@ const words = "Howdy! I am currently studying Computer Science at the University
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-black text-white">
+    <div className="min-h-screen w-full bg-black text-white overflow-x-hidden">
       <main>
-        {/* Hero section with WavyBackground and overlaid text */}
-        <div className="relative h-screen"> {/* Parent container for layering */}
-          {/* WavyBackground as the base layer */}
+        <div className="relative h-screen"> 
           <WavyBackground className="absolute inset-0" />
 
-          {/* Content layer, positioned on top of WavyBackground */}
+          {/*MAIN TEXT*/}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold flex flex-col md:flex-row items-center justify-center gap-4">
-              Hi, I'm {<TextHoverEffect text="LUKE" />}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-2 flex-wrap">
+              Hi, I'm
+              <div className= " w-[480px] h-[300px]">
+                <div className="text-hover-container">
+                  <TextHoverEffect text="LUKE" duration={0.3} />
+                </div>
+              </div>
             </h1>
-            <p className="mt-4 text-lg md:text-xl lg:text-2xl text-neutral-300 text-center max-w-2xl">
-              An aspiring Full Stack Developer passionate about building sleek web experiences.
+            <p className="mt-[-4rem] text-lg md:text-xl lg:text-2xl text-neutral-300 text-center max-w-2xl">
+              An aspiring full-stack software engineer
             </p>
             <button className="mt-8 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors">
               VIEW PROJECTS
