@@ -16,7 +16,8 @@ const data = [
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
+            Currently internshiping at Blitz Medical Billing, where I am
+            working on automating HIPAA-compliant workflows and enhancing data
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
