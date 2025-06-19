@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
-import { motion } from "framer-motion"; // Make sure this is CORRECT
+import { motion } from "framer-motion";
 
 export const TextHoverEffect = ({
   text,
@@ -13,45 +13,27 @@ export const TextHoverEffect = ({
   const svgRef = useRef<SVGSVGElement>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
-  const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
 
-  // Log hovered state changes
-  useEffect(() => {
-    console.log("HOVERED STATE UPDATED:", hovered);
-    // Observe the linearGradient stop-color changes in the Elements tab manually if this fires
-  }, [hovered]);
+  // ViewBox dimensions based on text length
+  const viewBoxWidth = text.length > 0 ? text.length * 60 : 60;
+  const viewBoxHeight = 100;
 
-  // Log cursor and maskPosition updates
+  // maskPosition in SVG user space units (numbers)
+  const [maskPosition, setMaskPosition] = useState({ cx: viewBoxWidth / 2, cy: viewBoxHeight / 2 });
+
   useEffect(() => {
     if (svgRef.current) {
       const svgRect = svgRef.current.getBoundingClientRect();
-      console.log("SVG getBoundingClientRect:", svgRect); // Check these values - should match 480x300 roughly
-      console.log("Raw Mouse Coords (cursor):", cursor); // Check this when you move the mouse
 
-      if (svgRect.width === 0 || svgRect.height === 0) {
-        console.warn("SVG still reporting 0 width/height from getBoundingClientRect, despite computed styles.");
-        // This would be a very strange edge case, but check it.
-        return;
-      }
+      // Calculate cursor position relative to SVG viewBox units
+      const cx = ((cursor.x - svgRect.left) / svgRect.width) * viewBoxWidth;
+      const cy = ((cursor.y - svgRect.top) / svgRect.height) * viewBoxHeight;
 
-      const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
-      const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
-
-      const newMaskPosition = {
-        cx: `${cxPercentage}%`,
-        cy: `${cyPercentage}%`,
-      };
-      setMaskPosition(newMaskPosition);
-      console.log("MASK POSITION CALCULATED & SET:", newMaskPosition); // THIS IS CRUCIAL
+      setMaskPosition({ cx, cy });
     }
-  }, [cursor]);
+  }, [cursor, viewBoxWidth, viewBoxHeight]);
 
-  // Determine a more appropriate viewBox based on the text length for better fit
-  // This is a heuristic and might need fine-tuning based on the font and exact text.
-  const textLengthFactor = text.length > 0 ? text.length : 1;
-  const calculatedViewBoxWidth = textLengthFactor * 60; // Adjust multiplier as needed
-  const calculatedViewBoxHeight = 100; // Keep height relatively constant or adjust as well
-  const fontSize = 70; // Set a specific font size in SVG units
+  const fontSize = 70; // font size in SVG units
 
   return (
     <svg
@@ -60,24 +42,14 @@ export const TextHoverEffect = ({
       height="100%"
       preserveAspectRatio="xMidYMid meet"
       className="block w-full h-full"
-      viewBox={`0 0 ${text.length > 0 ? text.length * 60 : 1 * 60} 100`} // Use dynamic viewBox
+      viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
       xmlns="http://www.w3.org/2000/svg"
-      onMouseEnter={() => {
-        setHovered(true);
-        console.log("EVENT: MOUSE ENTERED SVG"); // CHECK IF THIS APPEARS
-      }}
-      onMouseLeave={() => {
-        setHovered(false);
-        console.log("EVENT: MOUSE LEFT SVG"); // CHECK IF THIS APPEARS
-      }}
-      onMouseMove={(e) => {
-        setCursor({ x: e.clientX, y: e.clientY });
-        // console.log("EVENT: MOUSE MOVED - Raw ClientX:", e.clientX, "ClientY:", e.clientY); // Can be noisy, uncomment if needed
-      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
     >
       <defs>
         <linearGradient id="textGradient" gradientUnits="userSpaceOnUse" cx="50%" cy="50%" r="25%">
-          {/* Check these stop-colors manually in Elements tab */}
           <stop offset="0%" stopColor={hovered ? "#eab308" : "#aaa"} />
           <stop offset="25%" stopColor={hovered ? "#ef4444" : "#aaa"} />
           <stop offset="50%" stopColor={hovered ? "#3b82f6" : "#aaa"} />
@@ -88,31 +60,41 @@ export const TextHoverEffect = ({
         <motion.radialGradient
           id="revealMask"
           gradientUnits="userSpaceOnUse"
-          r="20%"
-          initial={{ cx: "50%", cy: "50%" }} // This will only apply on initial render
-          animate={maskPosition} // THIS IS WHAT FRAMER-MOTION SHOULD BE ANIMATING
-          transition={{ duration: duration ?? 0.3, ease: "easeOut" }} // Give it a small duration (e.g., 0.3s) to see the movement
+          r={viewBoxHeight * 0.3} // radius: 30% of viewBox height
+          initial={{ cx: viewBoxWidth / 2, cy: viewBoxHeight / 2 }}
+          animate={maskPosition}
+          transition={{ duration: duration ?? 0.3, ease: "easeOut" }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
         </motion.radialGradient>
+
         <mask id="textMask">
-          <rect x="0" y="0" width="100%" height="100%" fill="url(#revealMask)"></rect>
+          {/* Use absolute width/height here for the mask */}
+          <rect x="0" y="0" width={viewBoxWidth} height={viewBoxHeight} fill="url(#revealMask)" />
         </mask>
       </defs>
 
-      {/* The base "ghost" text */}
+      {/* Base "ghost" text (slightly visible on hover) */}
       <text
-        x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" strokeWidth="0.3"
+        x="50%"
+        y="50%"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        strokeWidth="0.3"
         className="fill-transparent stroke-neutral-200 font-[helvetica] font-bold dark:stroke-neutral-800"
         style={{ opacity: hovered ? 0.7 : 0, fontSize: `${fontSize}px` }}
       >
         {text}
       </text>
 
-      {/* The initial stroke animation text (this might obscure things if it's always visible) */}
+      {/* Stroke animation on load */}
       <motion.text
-        x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" strokeWidth="0.3"
+        x="50%"
+        y="50%"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        strokeWidth="0.3"
         className="fill-transparent stroke-neutral-200 font-[helvetica] font-bold dark:stroke-neutral-800"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{ strokeDashoffset: 0, strokeDasharray: 1000 }}
@@ -122,11 +104,17 @@ export const TextHoverEffect = ({
         {text}
       </motion.text>
 
-      {/* The masked text that should reveal on hover */}
+      {/* The masked gradient-colored text revealed on hover */}
       <text
-        x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" stroke="url(#textGradient)" strokeWidth="0.3" mask="url(#textMask)"
+        x="50%"
+        y="50%"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        stroke="url(#textGradient)"
+        strokeWidth={hovered ? 1.2 : 0.3} // thicker stroke on hover for visibility
+        mask="url(#textMask)"
         className="fill-transparent font-[helvetica] font-bold"
-        style={{ fontSize: `${fontSize}px` }}
+        style={{ fontSize: `${fontSize}px`, transition: "stroke-width 0.3s ease" }}
       >
         {text}
       </text>

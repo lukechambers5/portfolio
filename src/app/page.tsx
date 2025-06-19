@@ -224,14 +224,14 @@ export default function Home() {
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-2 flex-wrap">
               Hi, I'm
-              <div className= " w-[480px] h-[300px]">
+              <div className= " w-[480px] h-[195px]">
                 <div className="text-hover-container">
                   <TextHoverEffect text="LUKE" duration={0.3} />
                 </div>
               </div>
             </h1>
-            <p className="mt-[-4rem] text-lg md:text-xl lg:text-2xl text-neutral-300 text-center max-w-2xl">
-              An aspiring full-stack software engineer
+            <p className="mt-2 text-lg md:text-xl lg:text-2xl text-neutral-300 text-center max-w-2xl">
+              An aspiring Software Engineer
             </p>
             <button className="mt-8 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors">
               VIEW PROJECTS
