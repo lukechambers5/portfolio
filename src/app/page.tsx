@@ -1,43 +1,84 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { WavyBackground } from "../components/ui/WavyBackground";
 import { Timeline } from "../components/ui/Timeline";
 import { TextGenerateEffect } from "../components/ui/TextGenerateEffect";
 import { TextHoverEffect } from "@/components/ui/TextHoverEffect";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 import TechnicalSkillsDisplay from "@/components/ui/TechnicalSkillsDisplay";
-
-import { FaGithub, FaExternalLinkAlt, FaLinkedin, FaEnvelope, FaUniversity, FaSchool } from "react-icons/fa";
+import {
+  FaPhone,
+  FaGithub,
+  FaExternalLinkAlt,
+  FaLinkedin,
+  FaEnvelope,
+  FaPlayCircle,
+} from "react-icons/fa";
 
 const projects = [
   {
-    title: "eBrick",
+    title: "eBrick - Personal",
     description:
       "Full-stack LEGO marketplace using Next.js, Supabase, Stripe, and AWS Lambda for real-time pricing.",
-    image: "/projects/ebrick.png",
+    video: "/videos/ebrick-demo.mp4",
+    poster: "/thumbnail.png",
     github: "https://github.com/lukechambers5/eBrick",
     live: "https://ebrickshop.com",
   },
   {
-    title: "Football for Girls",
+    title: "Football for Girls - Personal",
     description:
       "Flask app scraping Wikipedia and ranking trending athletes using SQLite and user data.",
-    image: "/projects/football-for-girls.png",
-    github: "https://github.com/lukechambers5/football-for-girls",
+    image: "/football4girls.png",
+    github: "https://github.com/lukechambers5/football4girls",
+    live: "https://football4girls.biz",
+  },
+  {
+    title: "LEGO set price Generator - Personal",
+    description:
+      "Leverages AWS Lambda, API Gateway, and DynamoDB to generate price based off market value, condition, and set number",
+    image: "/AWS-HACK",
+    github: "https://github.com/lukechambers5/aws-lambda-hackathon",
     live: "",
   },
   {
-    title: "Census GUI",
+    title: "Spotify Album Finder - Personal",
+    description:
+      "React app that uses Spotify’s Client Credentials flow to let users search for any artist and view their albums in a responsive card gallery.",
+    image: "/spotify.png",
+    github: "https://github.com/lukechambers5/spotifyalbumfinder",
+    live: "https://spotifyalbumfinder.onrender.com/",
+  },
+  {
+    title: "Census GUI - Blitz Medical Billing",
     description:
       "Python + Tkinter automation app for Excel and Tableau reconciliation.",
-    image: "/projects/census.png",
-    github: "",
+    image: "/census2.png",
+    github: "https://github.com/lukechambers5/Census-Reconciliation",
+    live: "",
+  },
+  {
+    title: "QFX Automation - Blitz Medical Billing",
+    description:
+      "Python + Tkinter app that streamlines the processing of CSV files containing financial transaction data",
+    image: "/logos/blitz-logo.png",
+    github: "https://github.com/lukechambers5/QFX_Automation",
+    live: "",
+  },
+  {
+    title: "SFTP Automation - Blitz Medical Billing",
+    description:
+      "Python script automates the cleaning and formatting of provider charge CSV files",
+    image: "/logos/blitz-logo.png",
+    github: "https://github.com/lukechambers5/SFTP_Automation",
     live: "",
   },
 ];
 
 export default function Home() {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen w-full bg-black text-white overflow-x-hidden">
       <main>
@@ -69,7 +110,6 @@ export default function Home() {
             </button>
           </div>
         </section>
-        
 
         {/* About Me */}
         <section id="about" className="px-6 py-12 md:px-12 lg:px-24">
@@ -86,11 +126,14 @@ export default function Home() {
               <div className="col-span-2">
                 <p className="text-lg">
                   Howdy! I'm Luke Chambers, a Computer Science major with a Business minor at Texas A&M, class of 2027.
-                  <br /><br />
+                  <br />
+                  <br />
                   I've interned at Blitz Medical Billing in Software Development and Data Engineering, automating Excel workflows, building Tableau dashboards, and scripting secure data transfers.
-                  <br /><br />
+                  <br />
+                  <br />
                   I love building full-stack apps like <i>eBrick</i> and <i>Football for Girls</i> — combining Supabase, AWS, Python, and real-time tracking.
-                  <br /><br />
+                  <br />
+                  <br />
                   I’m also a percussion instructor and an active member of the TAMU Data Science Club and Percussion Studio.
                 </p>
               </div>
@@ -98,64 +141,119 @@ export default function Home() {
           </BackgroundGradient>
         </section>
         <div className="border-t border-gray-700 my-8"></div>
+
         {/* Education */}
         <section id="education" className="px-6 py-12 md:px-12 lg:px-24">
           <h2 className="text-4xl md:text-6xl mb-6 font-bold">Education</h2>
           <div className="space-y-8">
             <div className="flex items-start space-x-4 border-b border-gray-700 pb-4">
-              <img src="/logos/tamu-logo.webp" alt="Texas A&M Logo" className="w-30 h-30 mt-1" />
+              <img
+                src="/logos/tamu-logo.webp"
+                alt="Texas A&M Logo"
+                className="w-30 h-30 mt-1"
+              />
               <div>
                 <h3 className="text-2xl font-semibold">Texas A&M University</h3>
                 <p className="text-base">B.S. in Computer Science (2023–2027)</p>
-                <p className="text-sm text-neutral-400">GPA: 3.74 | TAMU Data Science Club · Percussion Studio</p>
+                <p className="text-sm text-neutral-400">
+                  GPA: 3.74 | TAMU Data Science Club · Percussion Studio
+                </p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
-              <img src="/logos/legacy-logo.png" alt="Legacy Christian Academy Logo" className="w-30 h-30 mt-1" />
+              <img
+                src="/logos/legacy-logo.png"
+                alt="Legacy Christian Academy Logo"
+                className="w-30 h-30 mt-1"
+              />
               <div>
-                <h3 className="text-2xl font-semibold">Legacy Christian Academy</h3>
+                <h3 className="text-2xl font-semibold">
+                  Legacy Christian Academy
+                </h3>
                 <p className="text-base">High School Diploma (2019–2023)</p>
-                <p className="text-sm text-neutral-400">GPA: 4.2 | John Philip Sousa Band Award · NHS</p>
+                <p className="text-sm text-neutral-400">
+                  GPA: 4.2 | John Philip Sousa Band Award · NHS
+                </p>
               </div>
             </div>
           </div>
         </section>
         <div className="border-t border-gray-700 my-8"></div>
+
         {/* Work Experience */}
         <section id="work" className="px-6 py-12 md:px-12 lg:px-24">
           <div className="flex items-center mb-8 space-x-4">
-            <h2 className="text-4xl md:text-6xl font-bold">Work Experience</h2>
-            <img src="/logos/blitz-logo.png" alt="Blitz Medical Billing Logo" className="w-45 h-20" />
+            <h2 className="text-4xl md:text-6xl font-bold">
+              Work Experience
+            </h2>
+            <img
+              src="/logos/blitz-logo.png"
+              alt="Blitz Medical Billing Logo"
+              className="w-45 h-20"
+            />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             <BackgroundGradient className="p-6 bg-zinc-900 rounded-xl h-full">
-              <h3 className="text-2xl font-semibold mb-2">Automation & Data Engineering Intern</h3>
-              <p className="text-base text-neutral-400 mb-1">Blitz Medical Billing | Frisco, TX</p>
-              <p className="text-sm text-neutral-300 mb-4">May 2025 – Present</p>
+              <h3 className="text-2xl font-semibold mb-2">
+                Automation & Data Engineering Intern
+              </h3>
+              <p className="text-base text-neutral-400 mb-1">
+                Blitz Medical Billing | Frisco, TX
+              </p>
+              <p className="text-sm text-neutral-300 mb-4">
+                May 2025 – Present
+              </p>
               <ul className="list-disc list-inside space-y-2">
-                <li>Developed HIPAA-compliant automation workflows using Office Scripts and Power Automate, reducing manual steps in payment reconciliation by 90% and boosting accuracy.</li>
-                <li>Engineered Python-based SFTP automations for secure data uploads/downloads and real-time error alerts, cutting monitoring time by 95%.</li>
-                <li>Refined Tableau dashboards by debugging and designing new client-facing visualizations, improving load times by 25%.</li>
+                <li>
+                  Developed HIPAA-compliant automation workflows using Office
+                  Scripts and Power Automate, reducing manual steps in payment
+                  reconciliation by 90% and boosting accuracy.
+                </li>
+                <li>
+                  Engineered Python-based SFTP automations for secure data
+                  uploads/downloads and real-time error alerts, cutting
+                  monitoring time by 95%.
+                </li>
+                <li>
+                  Refined Tableau dashboards by debugging and designing new
+                  client-facing visualizations, improving load times by 25%.
+                </li>
               </ul>
             </BackgroundGradient>
             <BackgroundGradient className="p-6 bg-zinc-900 rounded-xl h-full">
-              <h3 className="text-2xl font-semibold mb-2">Software Development Intern</h3>
-              <p className="text-base text-neutral-400 mb-1">Blitz Medical Billing | Frisco, TX</p>
-              <p className="text-sm text-neutral-300 mb-4">May 2024 – Aug 2024</p>
+              <h3 className="text-2xl font-semibold mb-2">
+                Software Development Intern
+              </h3>
+              <p className="text-base text-neutral-400 mb-1">
+                Blitz Medical Billing | Frisco, TX
+              </p>
+              <p className="text-sm text-neutral-300 mb-4">
+                May 2024 – Aug 2024
+              </p>
               <ul className="list-disc list-inside space-y-2">
-                <li>Automated Excel-based data aggregation for healthcare reporting using Python, cutting repetitive tasks by 90%.</li>
-                <li>Packaged automation tools with PyInstaller, eliminating dependencies and simplifying team onboarding.</li>
+                <li>
+                  Automated Excel-based data aggregation for healthcare
+                  reporting using Python, cutting repetitive tasks by 90%.
+                </li>
+                <li>
+                  Packaged automation tools with PyInstaller, eliminating
+                  dependencies and simplifying team onboarding.
+                </li>
               </ul>
             </BackgroundGradient>
           </div>
         </section>
         <div className="border-t border-gray-700 my-8"></div>
+
         {/* Technical Skills */}
         <section id="skills" className="px-6 py-12 md:px-12 lg:px-24">
-          <h2 className="text-4xl md:text-6xl mb-6 font-bold">Technical Skills</h2>
+          <h2 className="text-4xl md:text-6xl mb-6 font-bold">
+            Technical Skills
+          </h2>
           <TechnicalSkillsDisplay />
         </section>
         <div className="border-t border-gray-700 my-8"></div>
+
         {/* Projects */}
         <section id="projects" className="px-6 py-12 md:px-12 lg:px-24">
           <h2 className="text-4xl md:text-6xl mb-6 font-bold">Projects</h2>
@@ -163,23 +261,49 @@ export default function Home() {
             {projects.map((project, i) => (
               <BackgroundGradient
                 key={i}
-                className="rounded-xl p-4 bg-zinc-900  h-full"
+                className="relative rounded-xl p-4 bg-zinc-900 h-full"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover rounded-md mb-4"
-                />
+                {project.video ? (
+                  <div
+                    onClick={() => setSelectedVideo(project.video)}
+                    className="cursor-pointer w-full h-48 relative rounded-md overflow-hidden mb-4"
+                  >
+                    <video
+                      src={project.video}
+                      poster={project.poster}
+                      muted
+                      className="w-full h-full object-cover filter brightness-50"
+                    />
+                    <FaPlayCircle className="absolute inset-0 m-auto text-6xl text-white opacity-75" />
+                  </div>
+                ) : (
+                  <img
+                    src={project.image!}
+                    alt={project.title}
+                    className="w-full h-48 object-cover rounded-md mb-4"
+                  />
+                )}
+
                 <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="text-sm text-neutral-300 mb-4">{project.description}</p>
+                <p className="text-sm text-neutral-300 mb-4">
+                  {project.description}
+                </p>
                 <div className="flex gap-4">
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaGithub className="text-xl hover:text-white" />
                     </a>
                   )}
                   {project.live && (
-                    <a href={project.live} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaExternalLinkAlt className="text-xl hover:text-white" />
                     </a>
                   )}
@@ -188,23 +312,87 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <div className="border-t border-gray-700 my-8"></div>
-        {/* Contact */}
-        <section id="contact" className="px-6 py-12 md:px-12 lg:px-24">
-          <h2 className="text-4xl md:text-6xl mb-6 font-bold">Contact</h2>
-          <p className="text-lg mb-4">Feel free to reach out through any of the following:</p>
-          <div className="flex space-x-6 text-2xl">
-            <a href="mailto:your.email@example.com">
-              <FaEnvelope className="hover:text-white" />
-            </a>
-            <a href="https://github.com/lukechambers5" target="_blank" rel="noopener noreferrer">
-              <FaGithub className="hover:text-white" />
-            </a>
-            <a href="https://linkedin.com/in/lukechambers5" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin className="hover:text-white" />
-            </a>
+        <div className="border-t border-gray-700 my-8" />
+
+
+        {/* Video Modal */}
+        {selectedVideo && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
+            <button
+              className="absolute top-4 right-4 text-3xl text-white"
+              onClick={() => setSelectedVideo(null)}
+            >
+              ✕
+            </button>
+            <video
+              src={selectedVideo}
+              controls
+              autoPlay
+              className="max-w-full max-h-full rounded-lg shadow-lg"
+            />
           </div>
+        )}
+
+       {/* Contact */} 
+        <section id="contact" className="px-6 py-12 md:px-12 lg:px-24">
+          <h2 className="text-4xl md:text-6xl mb-6 font-bold text-center">
+            Let’s Connect
+          </h2>
+          <BackgroundGradient className="rounded-[22px] p-6 sm:p-10 bg-zinc-900 text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              {/* Left: illustrative image */}
+              <div className="flex justify-center">
+                <img
+                  src="/luke2.jpeg"        // ← swap in your image path
+                  alt="Get in touch illustration"
+                  className="w-full max-w-sm rounded-lg shadow-lg"
+                />
+              </div>
+
+              {/* Right: your contact info */}
+              <div className="flex flex-col justify-center space-y-6">
+                <p className="text-lg text-neutral-300">
+                  Whether you have a question about my projects, want to collaborate, or just say hi, I’m all ears!
+                </p>
+                <div className="flex flex-col space-y-4">
+                  <a
+                    href="469-430-4377"
+                    className="flex items-center space-x-3 hover:text-blue-400 transition"
+                  >
+                    <FaPhone size={24} />
+                    <span className="text-base">469-430-4377</span>
+                  </a>
+                  <a
+                    href="mailto:lukechambers0217@gmail.com"
+                    className="flex items-center space-x-3 hover:text-blue-400 transition"
+                  >
+                    <FaEnvelope size={24} />
+                    <span className="text-base">lukechambers0217@gmail.com</span>
+                  </a>
+                  <a
+                    href="https://github.com/lukechambers5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 hover:text-blue-400 transition"
+                  >
+                    <FaGithub size={24} />
+                    <span className="text-base">github.com/lukechambers5</span>
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/lukechambers5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 hover:text-blue-400 transition"
+                  >
+                    <FaLinkedin size={24} />
+                    <span className="text-base">linkedin.com/in/lukechambers5</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </BackgroundGradient>
         </section>
+
       </main>
     </div>
   );
