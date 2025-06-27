@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+
 
 // Define the technical skills data (can be passed as props if needed for reusability)
 const technicalSkills = [
@@ -72,14 +74,15 @@ const TechnicalSkillsDisplay = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
               {category.icons.map((icon, iconIndex) => (
                 <div key={iconIndex} className="flex flex-col items-center justify-center p-4 rounded-lg hover:bg-gray-800 transition-colors duration-200">
-                  <img
+                  <Image
                     src={icon.src}
                     alt={icon.name}
                     className="w-16 h-16 object-contain mb-2"
                     onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = `https://placehold.co/64x64/333333/FFFFFF?text=${icon.name.charAt(0)}`;
-                      e.target.alt = "Placeholder";
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src = `https://placehold.co/64x64/333333/FFFFFF?text=${icon.name.charAt(0)}`;
+                      target.alt = "Placeholder";
                     }}
                   />
                   <p className="text-sm text-center text-gray-300">{icon.name}</p>

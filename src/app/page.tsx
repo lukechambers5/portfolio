@@ -86,7 +86,7 @@ export default function Home() {
           <WavyBackground className="absolute inset-0" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-2 flex-wrap">
-              Hi, I'm
+              Hi, I&apos;mm
               <div className="w-[480px] h-[195px]">
                 <div className="text-hover-container">
                   <TextHoverEffect text="LUKE" duration={0.3} />
@@ -124,16 +124,16 @@ export default function Home() {
               </div>
               <div className="col-span-2">
                 <p className="text-lg">
-                  Howdy! I'm Luke Chambers, a Computer Science major with a Business minor at Texas A&M, class of 2027.
+                  Howdy! I&apos;mm Luke Chambers, a Computer Science major with a Business minor at Texas A&M, class of 2027.
                   <br />
                   <br />
-                  I've interned at Blitz Medical Billing in Software Development and Data Engineering, automating Excel workflows, building Tableau dashboards, and scripting secure data transfers.
+                  I&apos;mve interned at Blitz Medical Billing in Software Development and Data Engineering, automating Excel workflows, building Tableau dashboards, and scripting secure data transfers.
                   <br />
                   <br />
                   I love building full-stack apps like <i>eBrick</i> and <i>Football for Girls</i> — combining Supabase, AWS, Python, and real-time tracking.
                   <br />
                   <br />
-                  I’m also a percussion instructor and an active member of the TAMU Data Science Club and Percussion Studio.
+                  I&apos;mm also a percussion instructor and an active member of the TAMU Data Science Club and Percussion Studio.
                 </p>
               </div>
             </div>
