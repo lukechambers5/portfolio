@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { WavyBackground } from "../components/ui/WavyBackground";
-import { Timeline } from "../components/ui/Timeline";
 import { TextGenerateEffect } from "../components/ui/TextGenerateEffect";
 import { TextHoverEffect } from "@/components/ui/TextHoverEffect";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
@@ -38,9 +37,9 @@ const projects = [
     title: "LEGO set price Generator - Personal",
     description:
       "Leverages AWS Lambda, API Gateway, and DynamoDB to generate price based off market value, condition, and set number",
-    image: "/AWS-HACK",
+    image: "/price-generator.png",
     github: "https://github.com/lukechambers5/aws-lambda-hackathon",
-    live: "",
+    live: "https://aws-lambda-hackathon.vercel.app/",
   },
   {
     title: "Spotify Album Finder - Personal",
