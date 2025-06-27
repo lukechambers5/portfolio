@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from 'next/image';
 import { WavyBackground } from "../components/ui/WavyBackground";
-import { TextGenerateEffect } from "../components/ui/TextGenerateEffect";
 import { TextHoverEffect } from "@/components/ui/TextHoverEffect";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 import TechnicalSkillsDisplay from "@/components/ui/TechnicalSkillsDisplay";
@@ -116,7 +116,7 @@ export default function Home() {
           <BackgroundGradient className="rounded-[22px] p-4 sm:p-10 bg-zinc-900 overflow-hidden text-white">
             <div className="grid grid-cols-3 gap-4 items-start">
               <div className="col-span-1 flex justify-center">
-                <img
+                <Image
                   src="/portfolio_pp.jpg"
                   alt="Luke profilepic"
                   className="object-contain rounded-md max-w-full h-[400px] lg:h-[500px]"
@@ -146,7 +146,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-6xl mb-6 font-bold">Education</h2>
           <div className="space-y-8">
             <div className="flex items-start space-x-4 border-b border-gray-700 pb-4">
-              <img
+              <Image
                 src="/logos/tamu-logo.webp"
                 alt="Texas A&M Logo"
                 className="w-30 h-30 mt-1"
@@ -160,7 +160,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-start space-x-4">
-              <img
+              <Image
                 src="/logos/legacy-logo.png"
                 alt="Legacy Christian Academy Logo"
                 className="w-30 h-30 mt-1"
@@ -185,7 +185,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-6xl font-bold">
               Work Experience
             </h2>
-            <img
+            <Image
               src="/logos/blitz-logo.png"
               alt="Blitz Medical Billing Logo"
               className="w-45 h-20"
@@ -276,7 +276,7 @@ export default function Home() {
                     <FaPlayCircle className="absolute inset-0 m-auto text-6xl text-white opacity-75" />
                   </div>
                 ) : (
-                  <img
+                  <Image
                     src={project.image!}
                     alt={project.title}
                     className="w-full h-48 object-cover rounded-md mb-4"
@@ -341,7 +341,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               {/* Left: illustrative image */}
               <div className="flex justify-center">
-                <img
+                <Image
                   src="/luke2.jpeg"        // ← swap in your image path
                   alt="Get in touch illustration"
                   className="w-full max-w-sm rounded-lg shadow-lg"
