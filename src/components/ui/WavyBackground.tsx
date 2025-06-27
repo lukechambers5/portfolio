@@ -24,7 +24,7 @@ export const WavyBackground = ({
   blur?: number;
   speed?: "slow" | "fast";
   waveOpacity?: number;
-  [key: string]: any;
+  [key: string]: unknown;
 }) => {
   const noise = createNoise3D();
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -35,7 +35,7 @@ export const WavyBackground = ({
     ctx: CanvasRenderingContext2D | null = null,
     animationId = 0;
 
-  const getSpeed = () => {
+  const getSpeed = (): number => {
     switch (speed) {
       case "slow":
         return 0.001;
@@ -46,11 +46,11 @@ export const WavyBackground = ({
     }
   };
 
-  const init = () => {
+  const init = (): void => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    ctx = canvas.getContext("2d") as CanvasRenderingContext2D | null;
+    ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     w = ctx.canvas.width = window.innerWidth;
@@ -68,7 +68,7 @@ export const WavyBackground = ({
     render();
   };
 
-  const waveColors = colors ?? [
+  const waveColors: string[] = colors ?? [
     "#38bdf8",
     "#818cf8",
     "#c084fc",
@@ -76,7 +76,7 @@ export const WavyBackground = ({
     "#22d3ee",
   ];
 
-  const drawWave = (n: number) => {
+  const drawWave = (n: number): void => {
     if (!ctx) return;
     nt += getSpeed();
 
@@ -95,7 +95,7 @@ export const WavyBackground = ({
     }
   };
 
-  const render = () => {
+  const render = (): void => {
     if (!ctx) return;
 
     ctx.fillStyle = backgroundFill || "black";
