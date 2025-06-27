@@ -85,9 +85,9 @@ export default function Home() {
         <section id="hero" className="relative h-screen">
           <WavyBackground className="absolute inset-0" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-2 flex-wrap">
-              Hi, I&apos;mm
-              <div className="w-[480px] h-[195px]">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-2 flex-wrap">
+              Hi, I&apos;m
+              <div className="w-full max-w-[480px] h-[195px]">
                 <div className="text-hover-container">
                   <TextHoverEffect text="LUKE" duration={0.3} />
                 </div>
@@ -114,15 +114,15 @@ export default function Home() {
         <section id="about" className="px-6 py-12 md:px-12 lg:px-24">
           <h2 className="text-4xl md:text-6xl mb-6 font-bold">About Me</h2>
           <BackgroundGradient className="rounded-[22px] p-4 sm:p-10 bg-zinc-900 overflow-hidden text-white">
-            <div className="grid grid-cols-3 gap-4 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
               <div className="col-span-1 flex justify-center">
                 <Image
                   src="/portfolio_pp.jpg"
                   alt="Luke profilepic"
-                  className="object-contain rounded-md max-w-full h-[400px] lg:h-[500px]"
+                  className="object-contain rounded-md w-full h-auto max-h-[500px]"
                 />
               </div>
-              <div className="col-span-2">
+              <div className="md:col-span-2">
                 <p className="text-lg">
                   Howdy! I&apos;mm Luke Chambers, a Computer Science major with a Business minor at Texas A&M, class of 2027.
                   <br />
@@ -256,7 +256,7 @@ export default function Home() {
         {/* Projects */}
         <section id="projects" className="px-6 py-12 md:px-12 lg:px-24">
           <h2 className="text-4xl md:text-6xl mb-6 font-bold">Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, i) => (
               <BackgroundGradient
                 key={i}
@@ -271,7 +271,7 @@ export default function Home() {
                       src={project.video}
                       poster={project.poster}
                       muted
-                      className="w-full h-full object-cover filter brightness-50"
+                      className="w-[90%] max-h-[90%] rounded-lg shadow-lg"
                     />
                     <FaPlayCircle className="absolute inset-0 m-auto text-6xl text-white opacity-75" />
                   </div>
