@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 "use client";
 import React from "react";
 import { WavyBackground } from "@/components/ui/WavyBackground";
@@ -11,7 +13,7 @@ export default function HomePage() {
         <WavyBackground className="absolute inset-0" />
         <div className="relative text-center z-10">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-2 flex-wrap">
-            Hi, I&aposm
+            Hi, I'm
             <div className="w-[480px] h-[195px]">
               <div className="text-hover-container">
                 <TextHoverEffect text="LUKE" duration={0.3} />
