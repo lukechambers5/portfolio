@@ -2,7 +2,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { FaPhone, FaGithub, FaExternalLinkAlt, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaPhone, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 
 export default function ContactPage() {

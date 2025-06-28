@@ -20,16 +20,16 @@ export default function AboutPage() {
           </div>
           <div className="col-span-2">
             <p className="text-lg">
-              Howdy! I'm Luke Chambers, a Computer Science major with a Business minor at Texas A&M, class of 2027.
+              Howdy! I&aposm Luke Chambers, a Computer Science major with a Business minor at Texas A&M, class of 2027.
               <br />
               <br />
-              I've interned at Blitz Medical Billing in Software Development and Data Engineering, automating Excel workflows, building Tableau dashboards, and scripting secure data transfers.
+              I&aposve interned at Blitz Medical Billing in Software Development and Data Engineering, automating Excel workflows, building Tableau dashboards, and scripting secure data transfers.
               <br />
               <br />
               I love building full-stack apps like <i>eBrick</i> and <i>Football for Girls</i> — combining Supabase, AWS, Python, and real-time tracking.
               <br />
               <br />
-              I’m also a percussion instructor and an active member of the TAMU Data Science Club and Percussion Studio.
+              I&aposm also a percussion instructor and an active member of the TAMU Data Science Club and Percussion Studio.
             </p>
           </div>
         </div>
