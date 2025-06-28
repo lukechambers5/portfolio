@@ -58,7 +58,6 @@ const technicalSkills = [
 const TechnicalSkillsDisplay = () => {
   return (
     <div className="min-h-screen bg-black text-gray-200 p-8 font-inter flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-12 text-white">Technical Skills</h1>
 
       <div className="w-full max-w-5xl">
         {technicalSkills.map((category, index) => (
@@ -76,11 +75,12 @@ const TechnicalSkillsDisplay = () => {
                     src={icon.src}
                     alt={icon.name}
                     className="w-16 h-16 object-contain mb-2"
-                    onError={(e) => {
+                    onError={(e: any) => {
                       e.target.onerror = null;
                       e.target.src = `https://placehold.co/64x64/333333/FFFFFF?text=${icon.name.charAt(0)}`;
                       e.target.alt = "Placeholder";
                     }}
+
                   />
                   <p className="text-sm text-center text-gray-300">{icon.name}</p>
                 </div>
