@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-
 // app/technical/page.tsx
 "use client";
 import React from "react";

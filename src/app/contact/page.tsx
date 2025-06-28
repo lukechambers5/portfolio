@@ -1,5 +1,4 @@
 // app/contact/page.tsx
-/* eslint-disable react/no-unescaped-entities */
 
 "use client";
 import React from "react";
