@@ -16,6 +16,7 @@ export default function NavBar() {
         <div className="space-x-6 text-sm md:text-base text-white">
           <Link href="/about" className="hover:text-blue-400 transition">About</Link>
           <Link href="/education" className="hover:text-blue-400 transition">Education</Link>
+          <Link href="/work" className="hover:text-blue-400 transition">Work</Link>
           <Link href="/projects" className="hover:text-blue-400 transition">Projects</Link>
           <Link href="/technical" className="hover:text-blue-400 transition">Technical</Link>
           <Link href="/contact" className="hover:text-blue-400 transition">Contact</Link>
