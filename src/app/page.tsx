@@ -3,7 +3,6 @@
 "use client";
 import React from "react";
 import { WavyBackground } from "@/components/ui/WavyBackground";
-import { TextHoverEffect } from "@/components/ui/TextHoverEffect";
 
 export default function HomePage() {
   return (
