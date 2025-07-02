@@ -5,7 +5,6 @@ import Image from "next/image";
 export default function EducationPage() {
   return (
     <div className="min-h-screen w-full bg-black text-white px-6 py-12 md:px-12 lg:px-24">
-      <h2 className="text-4xl md:text-6xl mb-6 font-bold">Education</h2>
       <div className="space-y-8">
         <div className="flex items-start space-x-4 border-b border-gray-700 pb-4">
           <Image

@@ -7,7 +7,6 @@ import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 export default function WorkPage() {
   return (
     <div className="min-h-screen w-full bg-black text-white px-6 py-12 md:px-12 lg:px-24">
-      <h2 className="text-4xl md:text-6xl mb-6 font-bold">Work Experience</h2>
       <div className="flex items-center mb-8 space-x-4">
         <Image
           src="/logos/blitz-logo.png"

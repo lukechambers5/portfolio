@@ -6,55 +6,68 @@ import Image from 'next/image';
 const technicalSkills = [
   {
     title: "Frontend",
-    description: "Next.js, React, Tailwind CSS, HTML, CSS, JavaScript, TypeScript",
+    description: "JavaScript, TypeScript, React.js, Next.js, Tailwind CSS, HTML, CSS",
     link: "#frontend",
     icons: [
       { name: "JavaScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-      { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      { name: "React.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Next.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
       { name: "Tailwind CSS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
       { name: "HTML", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
       { name: "CSS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-      { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-    ]
+    ],
   },
   {
     title: "Backend",
-    description: "Flask, Python, Supabase Edge Functions (Docker), AWS Lambda, Java, C++",
+    description: "Node.js, Flask, Python, Java, C++, Supabase Edge Functions, AWS Lambda",
     link: "#backend",
     icons: [
-      { name: "Python", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
       { name: "Flask", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
-      { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-      { name: "AWS Lambda", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" }, // Closest for AWS Lambda
+      { name: "Python", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
       { name: "Java", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
       { name: "C++", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
-    ]
+      { name: "AWS Lambda", src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+    ],
   },
   {
     title: "Database",
-    description: "PostgreSQL, SQLite, DynamoDB, SQLAlchemy, Supabase, PgAdmin",
+    description: "Supabase, PostgreSQL, SQLite, DynamoDB, SQL",
     link: "#database",
     icons: [
+      { name: "Supabase", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
       { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
       { name: "SQLite", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
-      { name: "DynamoDB", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" }, // Closest for DynamoDB
-      { name: "Supabase", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
-    ]
+      { name: "DynamoDB", src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+      { name: "SQL", src: "https://placehold.co/64x64.png?text=SQL&bg=333333&color=FFFFFF" },
+    ],
+  },
+  {
+    title: "Data & Scripting",
+    description: "Pandas, NumPy, BeautifulSoup, Tableau",
+    link: "#data",
+    icons: [
+      { name: "Pandas", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+      { name: "NumPy", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+    ],
   },
   {
     title: "Tools",
-    description: "Git, Docker, Tableau, PyCharm, Visual Studio, Power Automate, Office Scripts",
+    description: "Git, Docker, GitHub, VS Code, PyCharm, Power Automate, Office Scripts, PyInstaller",
     link: "#tools",
     icons: [
       { name: "Git", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
       { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-      { name: "Visual Studio", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" },
+      { name: "VS Code", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
       { name: "PyCharm", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg" },
-      { name: "AWS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
-      { name: "Google Cloud", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-    ]
+    ],
   },
 ];
+
+
+
 
 // TechnicalSkillsDisplay Component
 const TechnicalSkillsDisplay = () => {
@@ -70,7 +83,7 @@ const TechnicalSkillsDisplay = () => {
             </h2>
 
             {/* Icons Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-8">
               {category.icons.map((icon, iconIndex) => (
                 <div key={iconIndex} className="flex flex-col items-center justify-center p-4 rounded-lg hover:bg-gray-800 transition-colors duration-200">
                   <Image

@@ -13,12 +13,7 @@ export default function HomePage() {
         <WavyBackground className="absolute inset-0" />
         <div className="relative text-center z-10">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold flex items-center justify-center gap-2 flex-wrap">
-            Hi, I'm
-            <div className="w-[480px] h-[195px]">
-              <div className="text-hover-container">
-                <TextHoverEffect text="LUKE" duration={0.3} />
-              </div>
-            </div>
+            Hi, I'm Luke
           </h1>
           <p className="mt-4 text-lg md:text-xl lg:text-2xl text-neutral-300 max-w-2xl mx-auto">
             An aspiring Software Engineer

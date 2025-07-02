@@ -40,9 +40,9 @@ const projects = [
     live: "https://spotifyalbumfinder.onrender.com/",
   },
   {
-    title: "Census GUI - Blitz Medical Billing",
+    title: "Census Reconciliation - Blitz Medical Billing",
     description:
-      "Python + Tkinter automation app for Excel and Tableau reconciliation.",
+      "Python + Tkinter automation app for AdvancedMD and Tableau reconciliation.",
     image: "/census2.png",
     github: "https://github.com/lukechambers5/Census-Reconciliation",
     live: "",
@@ -70,7 +70,6 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen w-full bg-black text-white px-6 py-12 md:px-12 lg:px-24">
-      <h2 className="text-4xl md:text-6xl mb-6 font-bold">Projects</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, i) => (
           <BackgroundGradient

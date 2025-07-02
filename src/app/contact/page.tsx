@@ -9,7 +9,6 @@ import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 export default function ContactPage() {
   return (
     <div className="min-h-screen w-full bg-black text-white px-6 py-12 md:px-12 lg:px-24">
-      <h2 className="text-4xl md:text-6xl mb-6 font-bold text-center">Let’s Connect</h2>
       <BackgroundGradient className="rounded-[22px] p-6 sm:p-10 bg-zinc-900 text-white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="flex justify-center">
