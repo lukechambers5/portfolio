@@ -14,9 +14,9 @@ export default function AboutPage() {
             <Image
               src="/portfolio_pp.jpg"
               alt="Luke profilepic"
-              width={300} 
-              height={400}
-              className="object-contain rounded-md max-w-full h-[400px] lg:h-[500px]"
+              width={400} 
+              height={500}
+              className="object-contain rounded-2xl max-w-full h-[400px] lg:h-[500px]"
             />
           </div>
           <div className="col-span-2">
