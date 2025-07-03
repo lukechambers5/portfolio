@@ -10,7 +10,7 @@ const projects = [
     title: "eBrick - Personal",
     description:
       "Full-stack LEGO marketplace using Next.js, Supabase, Stripe, and AWS Lambda for real-time pricing.",
-    video: "/videos/ebrick-demo.mp4",
+    video: "https://www.youtube.com/watch?v=yiicxoi2Pl4",
     poster: "/thumbnail.png",
     github: "https://github.com/lukechambers5/eBrick",
     live: "https://ebrickshop.com",
@@ -78,7 +78,13 @@ export default function ProjectsPage() {
           >
             {project.video ? (
               <div
-                onClick={() => setSelectedVideo(project.video)}
+                onClick={() => {
+                  if (project.video.startsWith("http")) {
+                    window.open(project.video, "_blank");
+                  } else {
+                    setSelectedVideo(project.video);
+                  }
+                }}
                 className="cursor-pointer w-full h-48 relative rounded-md overflow-hidden mb-4"
               >
                 <video
