@@ -21,7 +21,7 @@ const projects = [
       "Flask app that predicts NBA player points using a trained Random Forest model",
     image: "/nba.png",
     github: "https://github.com/lukechambers5/nba-points-ml",
-    live: "https://ebrickshop.com",
+    live: "https://nba-points-predictor.fly.dev/",
   },
   {
     title: "Football for Girls - Personal",
