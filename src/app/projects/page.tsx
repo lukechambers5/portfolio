@@ -16,6 +16,14 @@ const projects = [
     live: "https://ebrickshop.com",
   },
   {
+    title: "NBA Points Predicter",
+    description:
+      "Flask app that predicts NBA player points using a trained Random Forest model",
+    image: "/nba.png",
+    github: "https://github.com/lukechambers5/nba-points-ml",
+    live: "https://ebrickshop.com",
+  },
+  {
     title: "Football for Girls - Personal",
     description:
       "Flask app scraping Wikipedia and ranking trending athletes using SQLite and user data.",
