@@ -16,6 +16,14 @@ const projects = [
     live: "https://ebrickshop.com",
   },
   {
+    title: "CineScope - Personal",
+    description:
+      "Full-stack movie watchlist and recommendation app using Java Spring Boot, DynamoDB, AWS Lambda, AWS EC2, AWS S3, and React. Features JWT auth, movie enrichment, and TMDb integration.",
+    image: "/cinescope.png",
+    github: "https://github.com/lukechambers5/movie-watchlist",
+    live: "https://lukechambers5.github.io/movie-frontend"
+  },
+  {
     title: "NBA Points Predicter",
     description:
       "Flask app that predicts NBA player points using a trained Random Forest model",
