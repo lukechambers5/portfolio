@@ -24,7 +24,7 @@ const projects = [
     live: "https://lukechambers5.github.io/movie-frontend"
   },
   {
-    title: "NBA Points Predicter",
+    title: "NBA Points Predictor - Personal",
     description:
       "Flask app that predicts NBA player points using a trained Random Forest model",
     image: "/nba.png",
@@ -38,22 +38,6 @@ const projects = [
     image: "/football4girls.png",
     github: "https://github.com/lukechambers5/football4girls",
     live: "https://football4girls.biz",
-  },
-  {
-    title: "LEGO set price Generator - Personal",
-    description:
-      "Leverages AWS Lambda, API Gateway, and DynamoDB to generate price based off market value, condition, and set number",
-    image: "/price-generator.png",
-    github: "https://github.com/lukechambers5/aws-lambda-hackathon",
-    live: "https://aws-lambda-hackathon.vercel.app/",
-  },
-  {
-    title: "Spotify Album Finder - Personal",
-    description:
-      "React app that uses Spotify’s Client Credentials flow to let users search for any artist and view their albums in a responsive card gallery.",
-    image: "/spotify.png",
-    github: "https://github.com/lukechambers5/spotifyalbumfinder",
-    live: "https://spotifyalbumfinder.onrender.com/",
   },
   {
     title: "Census Reconciliation - Blitz Medical Billing",

@@ -1,46 +1,72 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { Timeline } from "@/components/ui/timeline";
 
-export default function EducationPage() {
-  return (
-    <div className="min-h-screen w-full bg-black text-white px-6 py-12 md:px-12 lg:px-24">
-      <div className="space-y-8">
-        <div className="flex items-start space-x-4 border-b border-gray-700 pb-4">
+const schools = [
+  {
+    title: "Texas A&M University",
+    logo: "/logos/tamu-logo.webp",
+    images: ["/tamu2.jpg", "/tamu3.jpg"],
+    bullets: [
+      "B.S. in Computer Science, Class of 2027",
+      "Minor in Business",
+      "GPA: 3.69",
+      "TAMU Data Science Club",
+      "TAMU Percussion Studio",
+      "TAMU Baptist Student Ministry"
+    ], 
+  },
+  {
+    title: "Legacy Christian Academy",
+    logo: "/logos/legacy-logo.png",
+    images: ["/lca1.jpg", "/lca2.jpg"],
+    bullets: [
+      "High School Diploma, 2019–2023",
+      "Percussion Captain (2022-2023), National Honor Society",
+      "Currently Part-Time Percussion Instructor (2023-Present)"
+    ],
+  },
+];
+
+// Transform to TimelineEntry format
+const timelineData = schools.map((school) => ({
+  title: school.title,
+  content: (
+    <div className="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-xl shadow-md space-y-4">
+      {/* Logo and bullets */}
+      <div className="flex items-center space-x-4">
+        <Image
+          src={school.logo}
+          alt={`${school.title} logo`}
+          width={60}
+          height={60}
+          className="rounded"
+        />
+        <ul className="list-disc list-inside text-sm text-neutral-800 dark:text-neutral-300">
+          {school.bullets.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Multiple images */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+        {school.images.map((img, i) => (
           <Image
-            src="/logos/tamu-logo.webp"
-            alt="Texas A&M Logo"
-            width={80}
-            height={80}
-            className="mt-1"
+            key={i}
+            src={img}
+            alt={`${school.title} photo ${i + 1}`}
+            width={400}
+            height={250}
+            className="rounded-lg object-cover"
           />
-          <div>
-            <h3 className="text-2xl font-semibold">Texas A&M University</h3>
-            <p className="text-base">B.S. in Computer Science (2023–2027)</p>
-            <p className="text-sm text-neutral-400">
-              GPA: 3.74 | TAMU Data Science Club · Percussion Studio
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-4">
-          <Image
-            src="/logos/legacy-logo.png"
-            alt="Legacy Christian Academy Logo"
-            width={80}
-            height={80}
-            className="mt-1"
-          />
-          <div>
-            <h3 className="text-2xl font-semibold">
-              Legacy Christian Academy
-            </h3>
-            <p className="text-base">High School Diploma (2019–2023)</p>
-            <p className="text-sm text-neutral-400">
-              GPA: 4.2 | John Philip Sousa Band Award · NHS
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  );
+  ),
+}));
+
+export default function EducationPage() {
+  return <Timeline data={timelineData} />;
 }

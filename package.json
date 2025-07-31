@@ -9,14 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tabler/icons-react": "^3.34.0",
+    "@tabler/icons-react": "^3.34.1",
     "@tailwindcss/cli": "^4.1.10",
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.18.1",
+    "framer-motion": "^12.23.12",
     "lucide-react": "^0.517.0",
-    "motion": "^12.18.1",
+    "motion": "^12.23.12",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

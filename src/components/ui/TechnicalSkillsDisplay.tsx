@@ -20,15 +20,26 @@ const technicalSkills = [
   },
   {
     title: "Backend",
-    description: "Node.js, Flask, Python, Java, C++, Supabase Edge Functions, AWS Lambda",
+    description: "Node.js, Flask, Python, Java, C++, Supabase Edge Functions, Java Spring Boot",
     link: "#backend",
     icons: [
       { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-      { name: "Flask", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+      { name: "Flask", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
       { name: "Python", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
       { name: "Java", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
       { name: "C++", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+      { name: "Spring Boot", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+    ],
+  },
+  {
+    title: "AWS Cloud",
+    description: "AWS EC2, AWS S3, AWS Lambda",
+    link: "#aws",
+    icons: [
+      { name: "AWS EC2", src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+      { name: "AWS S3", src:"https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
       { name: "AWS Lambda", src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+      { name: "DynamoDB", src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" }
     ],
   },
   {
@@ -39,7 +50,6 @@ const technicalSkills = [
       { name: "Supabase", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
       { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
       { name: "SQLite", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
-      { name: "DynamoDB", src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
       { name: "SQL", src: "https://placehold.co/64x64.png?text=SQL&bg=333333&color=FFFFFF" },
     ],
   },
@@ -69,6 +79,7 @@ const technicalSkills = [
 
 
 
+
 // TechnicalSkillsDisplay Component
 const TechnicalSkillsDisplay = () => {
   return (
@@ -91,6 +102,7 @@ const TechnicalSkillsDisplay = () => {
                     alt={icon.name}
                     width={200}
                     height={200}
+                    priority
                     className="w-16 h-16 object-contain mb-2"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
