@@ -32,14 +32,6 @@ const projects = [
     live: "https://nba-points-predictor.fly.dev/",
   },
   {
-    title: "Football for Girls - Personal",
-    description:
-      "Flask app scraping Wikipedia and ranking trending athletes using SQLite and user data.",
-    image: "/football4girls.png",
-    github: "https://github.com/lukechambers5/football4girls",
-    live: "https://football4girls.biz",
-  },
-  {
     title: "Census Reconciliation - Blitz Medical Billing",
     description:
       "Python + Tkinter automation app for AdvancedMD and Tableau reconciliation.",
