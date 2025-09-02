@@ -10,7 +10,7 @@ const projects = [
     title: "eBrick - Personal",
     description:
       "Full-stack LEGO marketplace using Next.js, Supabase, Stripe, and AWS Lambda for real-time pricing.",
-    video: "https://www.youtube.com/watch?v=yiicxoi2Pl4",
+    video: "https://youtu.be/yHpX8pqMRDk",
     poster: "/thumbnail.png",
     github: "https://github.com/lukechambers5/eBrick",
     live: "https://ebrickshop.com",
