@@ -69,7 +69,7 @@ export default function WorkPage() {
               Blitz Medical Billing | Frisco, TX
             </p>
             <p className="text-sm text-neutral-300 mb-4">
-              May 2025 – Present
+              May 2025 – July 2025
             </p>
             <ul className="list-disc list-inside space-y-2">
               <li>
