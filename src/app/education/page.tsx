@@ -7,13 +7,11 @@ const schools = [
   {
     title: "Texas A&M University",
     logo: "/logos/tamu-logo.webp",
-    images: ["/tamu2.jpg", "/tamu3.jpg"],
+    images: ["/tamu3.jpg"],
     bullets: [
       "B.S. in Computer Science, Class of 2027",
       "Minor in Business",
-      "GPA: 3.69",
-      "TAMU Data Science Club",
-      "TAMU Percussion Studio",
+      "GPA: 3.608",
       "TAMU Baptist Student Ministry"
     ], 
   },
