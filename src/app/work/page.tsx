@@ -12,7 +12,7 @@ export default function WorkPage() {
       {/* ===================== */}
       <div className="mb-12">
         <Image
-          src="/logos/ng2.png"
+          src="/logos/ng2.svg"
           alt="Northrop Grumman Logo"
           width={160}
           height={40}
